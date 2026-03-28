@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thrive Ranchi | Premium Curated Workspaces</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#d2e0fe",
+                        "surface-dim": "#d9dadb",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb3b0",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container": "#edeeef",
+                        "primary-container": "#410006",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#0d1c32",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed": "#001a41",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#e05456",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#410006",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "secondary": "#515f78",
+                        "background": "#f8f9fa",
+                        "on-secondary-container": "#55637d",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "secondary-fixed-dim": "#b9c7e4",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "primary": "#000000",
+                        "on-background": "#191c1d",
+                        "outline-variant": "#c5c6cd",
+                        "surface-tint": "#ae2f34",
+                        "tertiary-container": "#001a41",
+                        "on-secondary-fixed-variant": "#39475f",
+                        "on-tertiary-container": "#2480ff",
+                        "primary-fixed": "#ffdad8",
+                        "surface": "#f8f9fa",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "outline": "#75777e",
+                        "surface-bright": "#f8f9fa"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style> 
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; } 
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); } 
+        body { font-family: 'Inter', sans-serif; } 
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-on-primary-container/30">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-900/5">
+<nav class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4 font-manrope font-bold tracking-tight">
+<div class="text-2xl font-black text-slate-900 dark:text-slate-50 tracking-tighter">
+                Pop-Up Workspace
+            </div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-rose-500 transition-colors" href="#locations">Locations</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-rose-500 transition-colors" href="#pricing">Pricing</a>
+</div>
+<button class="text-white px-6 py-2.5 rounded-md font-bold text-sm hover:opacity-90 active:scale-95 transition-all" style="background-color: #23297A;">
+                Book a Spot
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<h1 class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-[0.9] mb-8 text-primary">
+                        Work where you <span class="" style="color: #23297A;">thrive.</span>
+</h1>
+<p class="text-lg lg:text-xl text-on-surface-variant mb-12 max-w-lg font-body leading-relaxed">
+                        Find and book flexible, on-demand workspaces in Ranchi. From quiet cafe corners to premium executive lounges.
+                    </p>
+<div class="relative group max-w-md">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none py-5 pl-12 pr-6 rounded-lg text-on-surface placeholder:text-outline focus:ring-2 focus:ring-on-tertiary-container/20 transition-all" placeholder="Find a spot in Ranchi..." type="text"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary text-white px-6 rounded-md font-bold hover:bg-primary/90 transition-colors">
+                            Search
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+<img alt="Modern cafe interior" class="w-full h-full object-cover" data-alt="Modern minimalist cafe interior with wooden tables, warm sunlight streaming through large windows, and people working quietly on laptops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7f0tYYbDxvnJcyWfdp72Yd0gvQF2PsbzDWxuZ_70jEppKFhF0310817d4vLKJbEMNfr4kOjE2l1w8vXUb5CTRlJIdOYolpR6SeD28rfSngHno1D2DoNFGWDA-Er8uOT15aOaj5vMIOH5Ji27rLyfrL8ehRfn3p8W5Pjw_uvNWSINBbo-rE9hGAOwQDheyURk1_b87w20irbJNIBGVkP-CQYSWgOmpNwObugnaygbEsaWOlS5WMzSfH3L6ZAhaz6oWRvKmocryMLJs"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-6 rounded-xl shadow-xl max-w-[240px] hidden md:block border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-on-tertiary-container" data-weight="fill">verified</span>
+<span class="font-bold text-sm">Verified Hosts</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">All our partner locations meet strict standards for Wi-Fi speed and ergonomic seating.</p>
+</div>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-surface-container-low/50 skew-x-12 translate-x-24"></div>
+</section>
+<!-- How It Works Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-extrabold tracking-tight mb-4">Seamless Experience</h2>
+<div class="h-1.5 w-24 bg-on-primary-container mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-16">
+<div class="flex flex-col items-start space-y-6">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-3xl">map</span>
+</div>
+<h3 class="text-2xl font-bold">Find a spot</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">Browse our curated map of coffee shops, boutique hotels, and dedicated co-working hubs across Ranchi.</p>
+</div>
+<div class="flex flex-col items-start space-y-6">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed text-3xl">credit_card</span>
+</div>
+<h3 class="text-2xl font-bold">Choose a plan</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">From hourly passes to monthly memberships, pick the flexibility that matches your workflow.</p>
+</div>
+<div class="flex flex-col items-start space-y-6">
+<div class="w-16 h-16 rounded-full flex items-center justify-center bg-blue-100">
+<span class="material-symbols-outlined text-on-primary-fixed text-3xl">laptop_mac</span>
+</div>
+<h3 class="text-2xl font-bold">Start working</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">Check-in digitally, grab your seat, and get things done with high-speed internet and reliable power.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Spaces Grid -->
+<section class="py-24 bg-surface" id="locations">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight">Popular Destinations</h2>
+<p class="text-on-surface-variant mt-2">The most loved spots by Ranchi's creative community.</p>
+</div>
+<a class="text-on-tertiary-container font-bold flex items-center gap-2 group" href="#">
+                        View all 42 locations 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Location Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img alt="Modern Office" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Interior of a luxury corporate boardroom in Ranchi with glass walls, ergonomic chairs, and city views in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAP7QwQu1uUlgA5PvimlHu9DJEHNblQ-kAYxHsghsqXBczJQkhJJgZm4Ve8UEYy99ndV8Ae1k9sFwFT9fm6beEPQcZ3sYoYuhkg6JS0CLkBtPpgFdBrDQShlEZQW2rRAUNaWnDGFAOQizg1fG1J0nEgDqO9IzhQ2qGLpudzI1ir7VrrAg7sieYhNrbj3mPi75HoSPo1itwd-uCtJGU9CRNu4UK4lNArpuAP-ZOyCJJzpQH4kaHm6PrXIuo6tYwS5y_2t-YfB-1B1jH"/>
+<div class="absolute top-4 left-4">
+<span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">Quiet Zone</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-xl font-bold">Kutchery Hub</h4>
+<span class="text-on-primary-container font-bold">₹199/hr</span>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">wifi</span> High-Speed Wi-Fi
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">ac_unit</span> AC
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">bolt</span> Power Backup
+                                </div>
+</div>
+<button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+</div>
+<!-- Location Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img alt="Boutique Cafe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Charming industrial style cafe in Ranchi with hanging plants, brick walls, and small wooden tables perfect for working" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz-Wcv04h7DuvxcPHdtL5n9xIX0jbZc-03R6_gV9RsE3dA_fMKbNBEc_OlFgs7hUAB3XwVgYIvqhpRXf-946iOCkuPJdCYGpxN--TxVs0bf6T924JaxoL2TIKQJoUPuAUTLZJMMQ-Oh6ir-1ynW3sVUYL5X0wzuwHx6wJzhJr9gsYrY43Khe4IxV9Ck2VAPi8xqCq39GKAIhxHSkiPRnd0LLeYUVIbinVF7hI45A-4xCbJNEehdN8sTbDRBPRsvv-kxyfAeLhXJ0Oy"/>
+<div class="absolute top-4 left-4">
+<span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">Creative Space</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-xl font-bold">Morabadi Lane</h4>
+<span class="text-on-primary-container font-bold">₹149/hr</span>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">coffee</span> Free Beverage
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">wifi</span> Wi-Fi
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">pets</span> Pet Friendly
+                                </div>
+</div>
+<button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+</div>
+<!-- Location Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img alt="Conference Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sleek modern conference room with high ceilings, glass partitions, and professional workspace environment in Ranchi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZt-6IOLiYriA9wwT0OrOVU3K2hGqw7nKs9qufIXV0DlZp5IZvJfxC0sRZxYIfWCrUYENENx6vEIsm3dr0YMF2LgFIbdYNsYUA1AqAbZtQ8694E6t80K3Znxdna7WoM-lnjDADXUTA-R61pol5hYNLSviIF3c9QwubNBjntNnvjyBv2fmo0nMnrh1nSkoZP9X13f9mqpg0Fiq-1053MbOKCL6AsfT3hGA1WBwSkSWtxcr6bAxiHatualn5bzFIEXdcmCFujTCLsrr"/>
+<div class="absolute top-4 left-4">
+<span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">Executive</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-xl font-bold">Doranda Square</h4>
+<span class="text-on-primary-container font-bold">₹249/hr</span>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">print</span> Printing
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">meeting_room</span> Private Pods
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">ac_unit</span> Central AC
+                                </div>
+</div>
+<button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 bg-surface-container-low" id="pricing">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-extrabold tracking-tight mb-4">Flexible Plans</h2>
+<p class="text-on-surface-variant">No long-term contracts. Pay only for the time you need.</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-8 items-stretch">
+<!-- Starter Plan -->
+<div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col">
+<div class="mb-8">
+<span class="text-on-surface-variant font-bold text-sm tracking-widest uppercase">Casual</span>
+<h3 class="text-3xl font-extrabold mt-2">Starter</h3>
+</div>
+<div class="mb-8">
+<span class="text-4xl font-extrabold">₹1,999</span>
+<span class="text-on-surface-variant">/month</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+<span class="text-sm">20 hours of workspace access</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant/50">
+<span class="material-symbols-outlined text-sm">cancel</span>
+<span class="text-sm">Meeting room credits</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+<span class="text-sm">Basic high-speed Wi-Fi</span>
+</li>
+</ul>
+<button class="w-full py-4 border-2 border-primary font-bold hover:bg-primary hover:text-white transition-all">Get Started</button>
+</div>
+<!-- Unlimited Plan (Featured) -->
+<div class="bg-primary text-white p-10 rounded-xl flex flex-col scale-105 shadow-2xl relative z-10 border-4" style="background-color: #23297A; border-color: #23297A;">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-on-primary-container text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                            Best Value
+                        </div>
+<div class="mb-8">
+<span class="text-on-primary-fixed-variant font-bold text-sm tracking-widest uppercase">Professional</span>
+<h3 class="text-3xl font-extrabold mt-2">Unlimited</h3>
+</div>
+<div class="mb-8">
+<span class="text-4xl font-extrabold">₹5,499</span>
+<span class="text-primary-fixed-dim">/month</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container text-sm" style="color: #adc6ff;">check_circle</span>
+<span class="text-sm">Unlimited desk access</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container text-sm" style="color: #adc6ff;">check_circle</span>
+<span class="text-sm">5 hours of meeting rooms</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container text-sm" style="color: #adc6ff;">check_circle</span>
+<span class="text-sm">Priority gigabit internet</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container text-sm" style="color: #adc6ff;">check_circle</span>
+<span class="text-sm">Free coffee &amp; refreshments</span>
+</li>
+</ul>
+<button class="w-full py-4 bg-on-primary-container text-white font-bold hover:opacity-90 transition-all">Join Unlimited</button>
+</div>
+<!-- Enterprise Plan -->
+<div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col">
+<div class="mb-8">
+<span class="text-on-surface-variant font-bold text-sm tracking-widest uppercase">Corporate</span>
+<h3 class="text-3xl font-extrabold mt-2">Enterprise</h3>
+</div>
+<div class="mb-8">
+<span class="text-4xl font-extrabold">Custom</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+<span class="text-sm">Dedicated team suites</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+<span class="text-sm">Custom IT infrastructure</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">check_circle</span>
+<span class="text-sm">Full concierge service</span>
+</li>
+</ul>
+<button class="w-full py-4 border-2 border-primary font-bold hover:bg-primary hover:text-white transition-all">Contact Sales</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-800 dark:bg-slate-950 w-full py-16 px-8 mt-20 text-slate-400 font-inter text-sm antialiased">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-bold text-white">Pop-Up Workspace</div>
+<p class="leading-relaxed">Democratizing professional workspaces for Ranchi's rising talent pool. Work anywhere, grow everywhere.</p>
+<div class="flex gap-4">
+<a class="hover:text-rose-400 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="hover:text-rose-400 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Contact</h4>
+<ul class="space-y-4">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 text-sm">location_on</span>
+                        Main Road, Ranchi, Jharkhand 834001
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 text-sm">call</span>
+                        +91 651 2233 4455
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 text-sm">mail</span>
+                        hello@thriveranchi.in
+                    </li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Newsletter</h4>
+<p class="mb-4">Get updates on new spots opening near you.</p>
+<form class="flex">
+<input class="bg-slate-700 border-none rounded-l-md w-full focus:ring-1 focus:ring-rose-500 text-white placeholder:text-slate-400" placeholder="Your email" type="email"/>
+<button class="text-white px-4 rounded-r-md transition-colors" style="background-color: #23297A;">
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-16 border-t border-slate-700 mt-16 text-center lg:text-left">
+<p>© 2024 Pop-Up Workspace. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
