@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "buildCommand": "npm install",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "backend/src/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/src/server.js"
+    }
+  ],
+  "env": {
+    "DB_HOST": "@db_host",
+    "DB_PORT": "@db_port",
+    "DB_NAME": "@db_name",
+    "DB_USER": "@db_user",
+    "DB_PASSWORD": "@db_password",
+    "JWT_SECRET": "@jwt_secret",
+    "JWT_EXPIRE": "7d",
+    "NODE_ENV": "production",
+    "CORS_ORIGIN": "http://localhost:3000,http://localhost:8000,https://yourdomain.com"
+  }
+}

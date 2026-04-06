@@ -3,7 +3,7 @@
 <html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Thrive Ranchi | Premium Curated Workspaces</title>
+<title>Pop-Up Workspace</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -89,9 +89,17 @@
 <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-rose-500 transition-colors" href="#locations">Locations</a>
 <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-rose-500 transition-colors" href="#pricing">Pricing</a>
 </div>
-<button class="text-white px-6 py-2.5 rounded-md font-bold text-sm hover:opacity-90 active:scale-95 transition-all" style="background-color: #23297A;">
-                Book a Spot
-            </button>
+<div class="flex items-center gap-4">
+<button id="userMenuBtn" class="text-slate-600 dark:text-slate-400 font-medium hover:text-rose-500 transition-colors hidden">
+                    Profile
+                </button>
+<button id="logoutBtn" class="text-slate-600 dark:text-slate-400 font-medium hover:text-rose-500 transition-colors hidden">
+                    Logout
+                </button>
+<button id="loginBtn" class="text-white px-6 py-2.5 rounded-md font-bold text-sm hover:opacity-90 active:scale-95 transition-all" style="background-color: #23297A;">
+                    Sign In
+                </button>
+</div>
 </nav>
 </header>
 <main>
@@ -171,93 +179,13 @@
 <h2 class="text-4xl font-extrabold tracking-tight">Popular Destinations</h2>
 <p class="text-on-surface-variant mt-2">The most loved spots by Ranchi's creative community.</p>
 </div>
-<a class="text-on-tertiary-container font-bold flex items-center gap-2 group" href="#">
-                        View all 42 locations 
+<button id="viewAllLocationsBtn" class="text-on-tertiary-container font-bold flex items-center gap-2 group cursor-pointer bg-none border-none p-0">
+                        View all<span id="totalLocationsCount">0</span>locations 
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
+</button>
 </div>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Location Card 1 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-<div class="relative h-64 overflow-hidden">
-<img alt="Modern Office" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Interior of a luxury corporate boardroom in Ranchi with glass walls, ergonomic chairs, and city views in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAP7QwQu1uUlgA5PvimlHu9DJEHNblQ-kAYxHsghsqXBczJQkhJJgZm4Ve8UEYy99ndV8Ae1k9sFwFT9fm6beEPQcZ3sYoYuhkg6JS0CLkBtPpgFdBrDQShlEZQW2rRAUNaWnDGFAOQizg1fG1J0nEgDqO9IzhQ2qGLpudzI1ir7VrrAg7sieYhNrbj3mPi75HoSPo1itwd-uCtJGU9CRNu4UK4lNArpuAP-ZOyCJJzpQH4kaHm6PrXIuo6tYwS5y_2t-YfB-1B1jH"/>
-<div class="absolute top-4 left-4">
-<span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">Quiet Zone</span>
-</div>
-</div>
-<div class="p-8">
-<div class="flex justify-between items-start mb-4">
-<h4 class="text-xl font-bold">Kutchery Hub</h4>
-<span class="text-on-primary-container font-bold">₹199/hr</span>
-</div>
-<div class="flex flex-wrap gap-3 mb-6">
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">wifi</span> High-Speed Wi-Fi
-                                </div>
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">ac_unit</span> AC
-                                </div>
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">bolt</span> Power Backup
-                                </div>
-</div>
-<button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
-</div>
-</div>
-<!-- Location Card 2 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-<div class="relative h-64 overflow-hidden">
-<img alt="Boutique Cafe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Charming industrial style cafe in Ranchi with hanging plants, brick walls, and small wooden tables perfect for working" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz-Wcv04h7DuvxcPHdtL5n9xIX0jbZc-03R6_gV9RsE3dA_fMKbNBEc_OlFgs7hUAB3XwVgYIvqhpRXf-946iOCkuPJdCYGpxN--TxVs0bf6T924JaxoL2TIKQJoUPuAUTLZJMMQ-Oh6ir-1ynW3sVUYL5X0wzuwHx6wJzhJr9gsYrY43Khe4IxV9Ck2VAPi8xqCq39GKAIhxHSkiPRnd0LLeYUVIbinVF7hI45A-4xCbJNEehdN8sTbDRBPRsvv-kxyfAeLhXJ0Oy"/>
-<div class="absolute top-4 left-4">
-<span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">Creative Space</span>
-</div>
-</div>
-<div class="p-8">
-<div class="flex justify-between items-start mb-4">
-<h4 class="text-xl font-bold">Morabadi Lane</h4>
-<span class="text-on-primary-container font-bold">₹149/hr</span>
-</div>
-<div class="flex flex-wrap gap-3 mb-6">
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">coffee</span> Free Beverage
-                                </div>
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">wifi</span> Wi-Fi
-                                </div>
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">pets</span> Pet Friendly
-                                </div>
-</div>
-<button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
-</div>
-</div>
-<!-- Location Card 3 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-<div class="relative h-64 overflow-hidden">
-<img alt="Conference Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sleek modern conference room with high ceilings, glass partitions, and professional workspace environment in Ranchi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZt-6IOLiYriA9wwT0OrOVU3K2hGqw7nKs9qufIXV0DlZp5IZvJfxC0sRZxYIfWCrUYENENx6vEIsm3dr0YMF2LgFIbdYNsYUA1AqAbZtQ8694E6t80K3Znxdna7WoM-lnjDADXUTA-R61pol5hYNLSviIF3c9QwubNBjntNnvjyBv2fmo0nMnrh1nSkoZP9X13f9mqpg0Fiq-1053MbOKCL6AsfT3hGA1WBwSkSWtxcr6bAxiHatualn5bzFIEXdcmCFujTCLsrr"/>
-<div class="absolute top-4 left-4">
-<span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">Executive</span>
-</div>
-</div>
-<div class="p-8">
-<div class="flex justify-between items-start mb-4">
-<h4 class="text-xl font-bold">Doranda Square</h4>
-<span class="text-on-primary-container font-bold">₹249/hr</span>
-</div>
-<div class="flex flex-wrap gap-3 mb-6">
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">print</span> Printing
-                                </div>
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">meeting_room</span> Private Pods
-                                </div>
-<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-<span class="material-symbols-outlined text-sm">ac_unit</span> Central AC
-                                </div>
-</div>
-<button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
-</div>
-</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="locationsGrid">
+<!-- Location Cards will load here from backend -->
 </div>
 </div>
 </section>
@@ -413,4 +341,651 @@
 <p>© 2024 Pop-Up Workspace. All rights reserved.</p>
 </div>
 </footer>
+
+<!-- User Profile Modal -->
+<div id="profileModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+<div class="bg-white rounded-2xl p-0 max-w-2xl w-full mx-4 shadow-2xl max-h-96 overflow-hidden flex flex-col">
+<div class="bg-gradient-to-r from-on-tertiary-container to-primary text-white p-8">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">account_circle</span>
+</div>
+<div>
+<h2 class="text-3xl font-bold" id="profileName"></h2>
+<p class="text-white/80" id="profileEmail"></p>
+</div>
+</div>
+<div class="flex gap-4 text-sm">
+<div class="bg-white/10 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm align-middle">verified</span>
+<span id="profileMembership" class="font-bold"></span>
+</div>
+</div>
+</div>
+
+<div class="overflow-y-auto flex-1 p-8">
+<div class="space-y-6">
+<!-- Stats Section -->
+<div class="grid grid-cols-3 gap-4 mb-6">
+<div class="bg-surface-container-highest rounded-lg p-4 text-center">
+<p class="text-2xl font-bold text-on-primary-container" id="bookingCount">0</p>
+<p class="text-xs text-on-surface-variant">Total Bookings</p>
+</div>
+<div class="bg-surface-container-highest rounded-lg p-4 text-center">
+<p class="text-2xl font-bold text-on-primary-container" id="hoursBooked">0</p>
+<p class="text-xs text-on-surface-variant">Hours Booked</p>
+</div>
+<div class="bg-surface-container-highest rounded-lg p-4 text-center">
+<p class="text-2xl font-bold text-on-primary-container" id="spentAmount">₹0</p>
+<p class="text-xs text-on-surface-variant">Amount Spent</p>
+</div>
+</div>
+
+<!-- Bookings Section -->
+<div>
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">calendar_today</span>
+Upcoming Bookings
+</h3>
+<div id="profileBookings" class="space-y-3">
+<p class="text-gray-500 text-center py-4">No bookings yet</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="border-t border-outline p-6 bg-surface-container-lowest flex gap-3 justify-end">
+<button class="px-6 py-2 border border-outline rounded-lg font-bold hover:bg-surface-container transition" onclick="document.getElementById('profileModal').classList.add('hidden')">Close</button>
+<button class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90 transition">Edit Profile</button>
+</div>
+</div>
+</div>
+
+<!-- Modals -->
+
+<!-- Login/Signup Modal -->
+<div id="authModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+<div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl">
+<h2 class="text-2xl font-bold mb-6" id="authTitle">Sign In</h2>
+<form id="authForm" class="space-y-4">
+<input id="authEmail" type="email" placeholder="Email" class="w-full px-4 py-3 border border-outline rounded-lg focus:ring-2 focus:ring-on-tertiary-container" required/>
+<input id="authPassword" type="password" placeholder="Password" class="w-full px-4 py-3 border border-outline rounded-lg focus:ring-2 focus:ring-on-tertiary-container" required/>
+<input id="authName" type="text" placeholder="Full Name" class="w-full px-4 py-3 border border-outline rounded-lg focus:ring-2 focus:ring-on-tertiary-container hidden"/>
+<button type="submit" class="w-full py-3 bg-primary text-white rounded-lg font-bold hover:opacity-90" id="authSubmit">Sign In</button>
+</form>
+<button class="text-sm text-on-tertiary-container mt-4 w-full" id="authToggle">Don't have an account? Sign up</button>
+<button class="text-sm text-gray-500 mt-2 w-full" onclick="document.getElementById('authModal').classList.add('hidden')">Close</button>
+</div>
+</div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+<div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl">
+<h2 class="text-2xl font-bold mb-6">Book a Spot</h2>
+<div id="bookingDetails" class="mb-4">
+<p class="text-lg font-bold" id="spotName"></p>
+<p class="text-gray-600" id="spotLocation"></p>
+<p class="text-2xl font-bold text-on-primary-container" id="spotPrice"></p>
+</div>
+<form id="bookingForm" class="space-y-4">
+<input id="bookingDate" type="date" class="w-full px-4 py-3 border border-outline rounded-lg" required/>
+<input id="bookingStartTime" type="time" placeholder="Start time" class="w-full px-4 py-3 border border-outline rounded-lg" required/>
+<input id="bookingEndTime" type="time" placeholder="End time" class="w-full px-4 py-3 border border-outline rounded-lg" required/>
+<input id="bookingGuests" type="number" placeholder="Number of guests" min="1" max="5" value="1" class="w-full px-4 py-3 border border-outline rounded-lg" required/>
+<button type="submit" class="w-full py-3 bg-primary text-white rounded-lg font-bold hover:opacity-90">Confirm Booking</button>
+</form>
+<button class="text-sm text-gray-500 mt-4 w-full" onclick="document.getElementById('bookingModal').classList.add('hidden')">Cancel</button>
+</div>
+</div>
+<div id="locationsDiscoveryModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+<div class="bg-white rounded-2xl p-0 max-w-4xl w-full shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="bg-gradient-to-r from-on-tertiary-container to-primary text-white p-8 flex justify-between items-center">
+<h2 class="text-3xl font-bold">Browse Locations</h2>
+<button onclick="document.getElementById('locationsDiscoveryModal').classList.add('hidden')" class="text-white hover:bg-white/20 p-2 rounded-lg">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+
+<!-- Search & Filters -->
+<div class="bg-surface-container-highest p-6 border-b border-outline space-y-4">
+<div class="flex gap-4 items-center">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-outline">search</span>
+<input id="locationSearch" type="text" placeholder="Search by name, city, or amenities..." class="w-full pl-10 pr-4 py-3 border border-outline rounded-lg focus:ring-2 focus:ring-on-tertiary-container"/>
+</div>
+<button class="px-6 py-3 bg-primary text-white rounded-lg font-bold hover:opacity-90">Filter</button>
+</div>
+<div class="flex gap-2 flex-wrap" id="cityFilters">
+<!-- City filter buttons will load here -->
+</div>
+</div>
+
+<!-- Locations Grid -->
+<div class="overflow-y-auto flex-1 p-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="discoveryLocationsGrid">
+<!-- Locations will load here -->
+</div>
+</div>
+</div>
+</div>
+
+<!-- User Profile Modal -->
+<div id="profileModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+<div class="bg-white rounded-2xl p-0 max-w-2xl w-full mx-4 shadow-2xl max-h-96 overflow-hidden flex flex-col">
+<div class="bg-gradient-to-r from-on-tertiary-container to-primary text-white p-8">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">account_circle</span>
+</div>
+<div>
+<h2 class="text-3xl font-bold" id="profileName"></h2>
+<p class="text-white/80" id="profileEmail"></p>
+</div>
+</div>
+<div class="flex gap-4 text-sm">
+<div class="bg-white/10 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm align-middle">verified</span>
+<span id="profileMembership" class="font-bold"></span>
+</div>
+</div>
+</div>
+
+<div class="overflow-y-auto flex-1 p-8">
+<div class="space-y-6">
+<!-- Stats Section -->
+<div class="grid grid-cols-3 gap-4 mb-6">
+<div class="bg-surface-container-highest rounded-lg p-4 text-center">
+<p class="text-2xl font-bold text-on-primary-container" id="bookingCount">0</p>
+<p class="text-xs text-on-surface-variant">Total Bookings</p>
+</div>
+<div class="bg-surface-container-highest rounded-lg p-4 text-center">
+<p class="text-2xl font-bold text-on-primary-container" id="hoursBooked">0</p>
+<p class="text-xs text-on-surface-variant">Hours Booked</p>
+</div>
+<div class="bg-surface-container-highest rounded-lg p-4 text-center">
+<p class="text-2xl font-bold text-on-primary-container" id="spentAmount">₹0</p>
+<p class="text-xs text-on-surface-variant">Amount Spent</p>
+</div>
+</div>
+
+<!-- Bookings Section -->
+<div>
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">calendar_today</span>
+Upcoming Bookings
+</h3>
+<div id="profileBookings" class="space-y-3">
+<p class="text-gray-500 text-center py-4">No bookings yet</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="border-t border-outline p-6 bg-surface-container-lowest flex gap-3 justify-end">
+<button class="px-6 py-2 border border-outline rounded-lg font-bold hover:bg-surface-container transition" onclick="document.getElementById('profileModal').classList.add('hidden')">Close</button>
+<button class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90 transition">Edit Profile</button>
+</div>
+</div>
+</div>
+
+<!-- Backend API Integration -->
+<script>
+// API Configuration
+const API_BASE_URL = 'http://localhost:3000/api';
+
+// Sample location images
+const locationImages = {
+  'LOC-NY-001': 'https://lh3.googleusercontent.com/aida-public/AB6AXuAAP7QwQu1uUlgA5PvimlHu9DJEHNblQ-kAYxHsghsqXBczJQkhJJgZm4Ve8UEYy99ndV8Ae1k9sFwFT9fm6beEPQcZ3sYoYuhkg6JS0CLkBtPpgFdBrDQShlEZQW2rRAUNaWnDGFAOQizg1fG1J0nEgDqO9IzhQ2qGLpudzI1ir7VrrAg7sieYhNrbj3mPi75HoSPo1itwd-uCtJGU9CRNu4UK4lNArpuAP-ZOyCJJzpQH4kaHm6PrXIuo6tYwS5y_2t-YfB-1B1jH',
+  'LOC-SF-001': 'https://lh3.googleusercontent.com/aida-public/AB6AXuDz-Wcv04h7DuvxcPHdtL5n9xIX0jbZc-03R6_gV9RsE3dA_fMKbNBEc_OlFgs7hUAB3XwVgYIvqhpRXf-946iOCkuPJdCYGpxN--TxVs0bf6T924JaxoL2TIKQJoUPuAUTLZJMMQ-Oh6ir-1ynW3sVUYL5X0wzuwHx6wJzhJr9gsYrY43Khe4IxV9Ck2VAPi8xqCq39GKAIhxHSkiPRnd0LLeYUVIbinVF7hI45A-4xCbJNEehdN8sTbDRBPRsvv-kxyfAeLhXJ0Oy',
+  'LOC-LON-001': 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUZt-6IOLiYriA9wwT0OrOVU3K2hGqw7nKs9qufIXV0DlZp5IZvJfxC0sRZxYIfWCrUYENENx6vEIsm3dr0YMF2LgFIbdYNsYUA1AqAbZtQ8694E6t80K3Znxdna7WoM-lnjDADXUTA-R61pol5hYNLSviIF3c9QwubNBjntNnvjyBv2fmo0nMnrh1nSkoZP9X13f9mqpg0Fiq-1053MbOKCL6AsfT3hGA1WBwSkSWtxcr6bAxiHatualn5bzFIEXdcmCFujTCLsrr',
+};
+
+// API Client
+const api = {
+  async request(endpoint, options = {}) {
+    const headers = {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    };
+
+    const token = localStorage.getItem('auth_token');
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      const errorMsg = error.errors 
+        ? error.errors.map(e => `${e.path}: ${e.msg}`).join(', ')
+        : error.message || `API Error: ${response.status}`;
+      throw new Error(errorMsg);
+    }
+
+    return response.json();
+  },
+
+  signup(email, password, fullName, membershipType = 'Gold') {
+    return this.request('/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+        full_name: fullName,
+        membership_type: membershipType,
+      }),
+    });
+  },
+
+  login(email, password) {
+    return this.request('/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+    });
+  },
+
+  getLocations(limit = 50, offset = 0) {
+    return this.request(`/locations?limit=${limit}&offset=${offset}`);
+  },
+
+  getLocationDetails(locationId) {
+    return this.request(`/locations/${locationId}`);
+  },
+
+  createBooking(spotId, locationId, startTime, endTime, guests = 1) {
+    return this.request('/bookings', {
+      method: 'POST',
+      body: JSON.stringify({
+        spot_id: spotId,
+        location_id: locationId,
+        start_time: startTime,
+        end_time: endTime,
+        number_of_guests: guests,
+      }),
+    });
+  },
+
+  getUserBookings() {
+    return this.request('/bookings');
+  },
+
+  getUserProfile(customerId) {
+    return this.request(`/users/${customerId}`);
+  },
+};
+
+// Page Load
+document.addEventListener('DOMContentLoaded', () => {
+  setupAuthUI();
+  loadLocations();
+  setupEventListeners();
+});
+
+// Setup Auth UI
+function setupAuthUI() {
+  const token = localStorage.getItem('auth_token');
+  const loginBtn = document.getElementById('loginBtn');
+  const userMenuBtn = document.getElementById('userMenuBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  
+  if (token) {
+    loginBtn.classList.add('hidden');
+    userMenuBtn.classList.remove('hidden');
+    logoutBtn.classList.remove('hidden');
+  } else {
+    loginBtn.classList.remove('hidden');
+    userMenuBtn.classList.add('hidden');
+    logoutBtn.classList.add('hidden');
+  }
+}
+
+// Load Locations
+async function loadLocations() {
+  try {
+    const result = await api.getLocations();
+    const grid = document.getElementById('locationsGrid');
+    grid.innerHTML = '';
+    
+    // Update total locations count
+    const totalLocationsCount = result.data.length;
+    const countElement = document.getElementById('totalLocationsCount');
+    if (countElement) {
+      countElement.textContent = totalLocationsCount;
+    }
+    
+    result.data.forEach((location, index) => {
+      const card = document.createElement('div');
+      card.className = 'group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300';
+      card.innerHTML = `
+        <div class="relative h-64 overflow-hidden">
+          <img alt="${location.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="${locationImages[location.location_id] || 'https://via.placeholder.com/400x300'}"/>
+          <div class="absolute top-4 left-4">
+            <span class="bg-on-tertiary-container text-white px-3 py-1 rounded-full text-xs font-bold glass-nav">${location.city}</span>
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h4 class="text-xl font-bold">${location.name}</h4>
+            <span class="text-on-primary-container font-bold">₹${Math.floor(Math.random() * 150 + 150)}/hr</span>
+          </div>
+          <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+              <span class="material-symbols-outlined text-sm">wifi</span> High-Speed Wi-Fi
+            </div>
+            <div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+              <span class="material-symbols-outlined text-sm">ac_unit</span> AC
+            </div>
+            <div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+              <span class="material-symbols-outlined text-sm">bolt</span> Available: ${location.available_desks}
+            </div>
+          </div>
+          <button class="w-full border-2 border-primary py-3 rounded-md font-bold group-hover:bg-primary group-hover:text-white transition-all book-btn" data-location-id="${location.location_id}" data-location-name="${location.name}">Book Now</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    
+    setupBookingHandlers();
+  } catch (error) {
+    console.error('Failed to load locations:', error);
+  }
+}
+
+// Setup Event Listeners
+function setupEventListeners() {
+  document.getElementById('loginBtn')?.addEventListener('click', () => {
+    document.getElementById('authModal').classList.remove('hidden');
+    resetAuthForm();
+  });
+
+  document.getElementById('viewAllLocationsBtn')?.addEventListener('click', showLocationsDiscovery);
+
+  document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    localStorage.removeItem('auth_token');
+    localStorage.removeItem('customer_id');
+    setupAuthUI();
+    loadLocations();
+  });
+
+  document.getElementById('userMenuBtn')?.addEventListener('click', showProfile);
+  document.getElementById('authToggle')?.addEventListener('click', toggleAuthMode);
+  document.getElementById('authForm')?.addEventListener('submit', handleAuth);
+  document.getElementById('bookingForm')?.addEventListener('submit', handleBooking);
+  document.getElementById('locationSearch')?.addEventListener('input', filterLocations);
+}
+
+function resetAuthForm() {
+  document.getElementById('authForm').reset();
+  document.getElementById('authName').classList.add('hidden');
+  document.getElementById('authTitle').textContent = 'Sign In';
+  document.getElementById('authSubmit').textContent = 'Sign In';
+}
+
+function toggleAuthMode() {
+  const isSignup = document.getElementById('authTitle').textContent === 'Sign In';
+  const nameInput = document.getElementById('authName');
+  
+  if (isSignup) {
+    document.getElementById('authTitle').textContent = 'Sign Up';
+    document.getElementById('authSubmit').textContent = 'Sign Up';
+    nameInput.classList.remove('hidden');
+    document.getElementById('authToggle').textContent = 'Already have an account? Sign in';
+  } else {
+    resetAuthForm();
+  }
+}
+
+async function handleAuth(e) {
+  e.preventDefault();
+  const email = document.getElementById('authEmail').value;
+  const password = document.getElementById('authPassword').value;
+  const name = document.getElementById('authName').value;
+  const isSignup = document.getElementById('authTitle').textContent === 'Sign Up';
+
+  try {
+    const payload = isSignup 
+      ? { email, password, full_name: name, membership_type: 'Gold' }
+      : { email, password };
+    
+    console.log('Auth attempt:', { ...payload, password: '***' });
+    
+    let result;
+    if (isSignup) {
+      result = await api.signup(email, password, name);
+    } else {
+      result = await api.login(email, password);
+    }
+    
+    if (!result.token) {
+      throw new Error('No token received from server');
+    }
+    
+    localStorage.setItem('auth_token', result.token);
+    localStorage.setItem('customer_id', result.data.customer_id);
+    
+    document.getElementById('authModal').classList.add('hidden');
+    setupAuthUI();
+    loadLocations();
+    alert(`Welcome${isSignup ? '' : ' back'}, ${result.data.full_name}!`);
+  } catch (error) {
+    console.error('Auth error:', error);
+    console.error('Full error details:', error.response || error);
+    alert(`${isSignup ? 'Signup' : 'Login'} failed:\n${error.message}\n\n(Check browser console for details)`);
+  }
+}
+
+function setupBookingHandlers() {
+  document.querySelectorAll('.book-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        alert('Please sign in first');
+        document.getElementById('authModal').classList.remove('hidden');
+        return;
+      }
+
+      const locationId = btn.dataset.locationId;
+      const locationName = btn.dataset.locationName;
+      
+      document.getElementById('spotName').textContent = locationName;
+      document.getElementById('spotLocation').textContent = 'Select date and time';
+      document.getElementById('spotPrice').textContent = '₹199/hr';
+      document.getElementById('bookingModal').dataset.locationId = locationId;
+      document.getElementById('bookingModal').classList.remove('hidden');
+    });
+  });
+}
+
+async function handleBooking(e) {
+  e.preventDefault();
+  const locationId = document.getElementById('bookingModal').dataset.locationId;
+  const date = document.getElementById('bookingDate').value;
+  const startTime = document.getElementById('bookingStartTime').value;
+  const endTime = document.getElementById('bookingEndTime').value;
+  const guests = document.getElementById('bookingGuests').value;
+
+  const startDateTime = `${date}T${startTime}:00Z`;
+  const endDateTime = `${date}T${endTime}:00Z`;
+
+  try {
+    const result = await api.createBooking('DESK-401', locationId, startDateTime, endDateTime, guests);
+    alert(`Booking confirmed! Reservation ID: ${result.data.reservation_id}`);
+    document.getElementById('bookingModal').classList.add('hidden');
+  } catch (error) {
+    alert(`Booking failed: ${error.message}`);
+  }
+}
+
+async function showProfile() {
+  const customerId = localStorage.getItem('customer_id');
+  if (!customerId) return;
+
+  try {
+    const userResult = await api.getUserProfile(customerId);
+    const bookingsResult = await api.getUserBookings();
+
+    document.getElementById('profileName').textContent = userResult.data.user.full_name;
+    document.getElementById('profileEmail').textContent = userResult.data.user.email;
+    document.getElementById('profileMembership').textContent = userResult.data.user.membership_type;
+    
+    // Calculate stats
+    const bookings = bookingsResult.data || [];
+    const totalBookings = bookings.length;
+    let totalHours = 0;
+    let totalSpent = 0;
+
+    const bookingsDiv = document.getElementById('profileBookings');
+    bookingsDiv.innerHTML = '';
+
+    if (bookings.length > 0) {
+      bookings.forEach(booking => {
+        const startTime = new Date(booking.start_time);
+        const endTime = new Date(booking.end_time);
+        const hours = (endTime - startTime) / (1000 * 60 * 60);
+        totalHours += hours;
+        totalSpent += hours * 199; // Assuming 199 per hour
+
+        const bookingEl = document.createElement('div');
+        bookingEl.className = 'bg-surface-container-highest rounded-lg p-4 flex justify-between items-start';
+        bookingEl.innerHTML = `
+          <div>
+            <p class="font-bold text-on-surface">${startTime.toLocaleDateString()}</p>
+            <p class="text-sm text-on-surface-variant">${startTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} - ${endTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+            <p class="text-xs text-on-surface-variant mt-1">${hours.toFixed(1)} hours</p>
+          </div>
+          <div class="text-right">
+            <p class="font-bold text-on-primary-container">₹${(hours * 199).toLocaleString()}</p>
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">${booking.booking_status || 'Confirmed'}</span>
+          </div>
+        `;
+        bookingsDiv.appendChild(bookingEl);
+      });
+    } else {
+      bookingsDiv.innerHTML = '<p class="text-gray-500 text-center py-4">👋 No bookings yet. Start by exploring our locations!</p>';
+    }
+
+    // Update stats
+    document.getElementById('bookingCount').textContent = totalBookings;
+    document.getElementById('hoursBooked').textContent = totalHours.toFixed(1);
+    document.getElementById('spentAmount').textContent = '₹' + totalSpent.toLocaleString();
+
+    document.getElementById('profileModal').classList.remove('hidden');
+  } catch (error) {
+    console.error('Profile error:', error);
+    alert(`Error loading profile: ${error.message}`);
+  }
+}
+
+async function showLocationsDiscovery() {
+  try {
+    const result = await api.getLocations(100);
+    window.allLocations = result.data || [];
+    renderDiscoveryLocations(window.allLocations);
+    
+    // Load city filters
+    const cities = [...new Set(window.allLocations.map(l => l.city))];
+    const filterContainer = document.getElementById('cityFilters');
+    filterContainer.innerHTML = cities.map(city => `
+      <button class="px-4 py-2 bg-surface-container-highest border border-outline rounded-full text-sm font-bold hover:bg-primary hover:text-white hover:border-primary transition city-filter" data-city="${city}">
+        ${city}
+      </button>
+    `).join('');
+    
+    // Add city filter listeners
+    document.querySelectorAll('.city-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const city = btn.dataset.city;
+        const filtered = btn.classList.contains('bg-primary') 
+          ? window.allLocations 
+          : window.allLocations.filter(l => l.city === city);
+        renderDiscoveryLocations(filtered);
+        
+        // Toggle active state
+        document.querySelectorAll('.city-filter').forEach(b => b.classList.remove('bg-primary', 'text-white', 'border-primary'));
+        if (btn.classList.contains('bg-primary')) {
+          btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+        } else {
+          btn.classList.add('bg-primary', 'text-white', 'border-primary');
+        }
+      });
+    });
+    
+    document.getElementById('locationsDiscoveryModal').classList.remove('hidden');
+  } catch (error) {
+    alert('Error loading locations: ' + error.message);
+  }
+}
+
+function filterLocations() {
+  const searchTerm = document.getElementById('locationSearch').value.toLowerCase();
+  const filtered = window.allLocations.filter(loc => 
+    loc.name.toLowerCase().includes(searchTerm) ||
+    loc.city.toLowerCase().includes(searchTerm) ||
+    (loc.description && loc.description.toLowerCase().includes(searchTerm))
+  );
+  renderDiscoveryLocations(filtered);
+}
+
+function renderDiscoveryLocations(locations) {
+  const grid = document.getElementById('discoveryLocationsGrid');
+  grid.innerHTML = '';
+  
+  if (locations.length === 0) {
+    grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-8">No locations found</p>';
+    return;
+  }
+  
+  locations.forEach(location => {
+    const card = document.createElement('div');
+    card.className = 'bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-lg transition-shadow border border-outline';
+    card.innerHTML = `
+      <div class="relative h-48 overflow-hidden bg-gray-200">
+        <img alt="${location.name}" class="w-full h-full object-cover" src="${locationImages[location.location_id] || 'https://via.placeholder.com/400x300'}"/>
+        <div class="absolute top-3 left-3">
+          <span class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">${location.city}</span>
+        </div>
+      </div>
+      <div class="p-6">
+        <h4 class="text-lg font-bold mb-2">${location.name}</h4>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-2xl font-bold text-on-primary-container">₹${Math.floor(Math.random() * 150 + 150)}/hr</span>
+          <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">${location.available_desks || 0} available</span>
+        </div>
+        <button class="w-full py-3 bg-primary text-white rounded-lg font-bold hover:opacity-90 discovery-book-btn" data-location-id="${location.location_id}" data-location-name="${location.name}">Book Now</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  
+  // Add book button listeners
+  document.querySelectorAll('.discovery-book-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        document.getElementById('locationsDiscoveryModal').classList.add('hidden');
+        alert('Please sign in first');
+        document.getElementById('authModal').classList.remove('hidden');
+        return;
+      }
+
+      const locationId = btn.dataset.locationId;
+      const locationName = btn.dataset.locationName;
+      
+      document.getElementById('spotName').textContent = locationName;
+      document.getElementById('spotLocation').textContent = 'Select date and time';
+      document.getElementById('spotPrice').textContent = '₹199/hr';
+      document.getElementById('bookingModal').dataset.locationId = locationId;
+      document.getElementById('bookingModal').classList.remove('hidden');
+    });
+  });
+}
+
+// Export for debugging
+window.api = api;
+</script>
 </body></html>
