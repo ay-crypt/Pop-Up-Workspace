@@ -470,65 +470,6 @@ Upcoming Bookings
 </div>
 </div>
 
-<!-- User Profile Modal -->
-<div id="profileModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-<div class="bg-white rounded-2xl p-0 max-w-2xl w-full mx-4 shadow-2xl max-h-96 overflow-hidden flex flex-col">
-<div class="bg-gradient-to-r from-on-tertiary-container to-primary text-white p-8">
-<div class="flex items-center gap-4 mb-4">
-<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl">account_circle</span>
-</div>
-<div>
-<h2 class="text-3xl font-bold" id="profileName"></h2>
-<p class="text-white/80" id="profileEmail"></p>
-</div>
-</div>
-<div class="flex gap-4 text-sm">
-<div class="bg-white/10 px-3 py-1 rounded-full">
-<span class="material-symbols-outlined text-sm align-middle">verified</span>
-<span id="profileMembership" class="font-bold"></span>
-</div>
-</div>
-</div>
-
-<div class="overflow-y-auto flex-1 p-8">
-<div class="space-y-6">
-<!-- Stats Section -->
-<div class="grid grid-cols-3 gap-4 mb-6">
-<div class="bg-surface-container-highest rounded-lg p-4 text-center">
-<p class="text-2xl font-bold text-on-primary-container" id="bookingCount">0</p>
-<p class="text-xs text-on-surface-variant">Total Bookings</p>
-</div>
-<div class="bg-surface-container-highest rounded-lg p-4 text-center">
-<p class="text-2xl font-bold text-on-primary-container" id="hoursBooked">0</p>
-<p class="text-xs text-on-surface-variant">Hours Booked</p>
-</div>
-<div class="bg-surface-container-highest rounded-lg p-4 text-center">
-<p class="text-2xl font-bold text-on-primary-container" id="spentAmount">₹0</p>
-<p class="text-xs text-on-surface-variant">Amount Spent</p>
-</div>
-</div>
-
-<!-- Bookings Section -->
-<div>
-<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined">calendar_today</span>
-Upcoming Bookings
-</h3>
-<div id="profileBookings" class="space-y-3">
-<p class="text-gray-500 text-center py-4">No bookings yet</p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="border-t border-outline p-6 bg-surface-container-lowest flex gap-3 justify-end">
-<button class="px-6 py-2 border border-outline rounded-lg font-bold hover:bg-surface-container transition" onclick="document.getElementById('profileModal').classList.add('hidden')">Close</button>
-<button class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90 transition">Edit Profile</button>
-</div>
-</div>
-</div>
-
 <!-- Backend API Integration -->
 <script>
 // API Configuration
@@ -558,6 +499,16 @@ const api = {
       ...options,
       headers,
     });
+
+    // FIX: Handle 401 globally — clear stale token and redirect to login
+    if (response.status === 401) {
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('customer_id');
+      setupAuthUI();
+      document.getElementById('authModal').classList.remove('hidden');
+      resetAuthForm();
+      throw new Error('Session expired. Please sign in again.');
+    }
 
     if (!response.ok) {
       const error = await response.json();
@@ -724,13 +675,14 @@ function resetAuthForm() {
   document.getElementById('authName').classList.add('hidden');
   document.getElementById('authTitle').textContent = 'Sign In';
   document.getElementById('authSubmit').textContent = 'Sign In';
+  document.getElementById('authToggle').textContent = "Don't have an account? Sign up";
 }
 
 function toggleAuthMode() {
-  const isSignup = document.getElementById('authTitle').textContent === 'Sign In';
+  const isLogin = document.getElementById('authTitle').textContent === 'Sign In';
   const nameInput = document.getElementById('authName');
   
-  if (isSignup) {
+  if (isLogin) {
     document.getElementById('authTitle').textContent = 'Sign Up';
     document.getElementById('authSubmit').textContent = 'Sign Up';
     nameInput.classList.remove('hidden');
@@ -742,40 +694,49 @@ function toggleAuthMode() {
 
 async function handleAuth(e) {
   e.preventDefault();
-  const email = document.getElementById('authEmail').value;
+  const email = document.getElementById('authEmail').value.trim();
   const password = document.getElementById('authPassword').value;
-  const name = document.getElementById('authName').value;
+  const name = document.getElementById('authName').value.trim();
   const isSignup = document.getElementById('authTitle').textContent === 'Sign Up';
 
+  const submitBtn = document.getElementById('authSubmit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = isSignup ? 'Signing up...' : 'Signing in...';
+
   try {
-    const payload = isSignup 
-      ? { email, password, full_name: name, membership_type: 'Gold' }
-      : { email, password };
-    
-    console.log('Auth attempt:', { ...payload, password: '***' });
-    
     let result;
     if (isSignup) {
       result = await api.signup(email, password, name);
     } else {
       result = await api.login(email, password);
     }
-    
-    if (!result.token) {
-      throw new Error('No token received from server');
+
+    // FIX: Safely extract token — handles both { token } and { data: { token } }
+    const token = result.token || result.data?.token;
+    if (!token) {
+      console.error('Full server response:', result);
+      throw new Error('No token received. Check console for the full server response.');
     }
-    
-    localStorage.setItem('auth_token', result.token);
-    localStorage.setItem('customer_id', result.data.customer_id);
-    
+
+    // FIX: Safely extract customer_id — handles both { data: { customer_id } } and { customer_id }
+    const customerId = result.data?.customer_id || result.customer_id || result.data?.user?.customer_id;
+    const fullName = result.data?.full_name || result.data?.user?.full_name || result.full_name || email;
+
+    localStorage.setItem('auth_token', token.trim());
+    if (customerId) {
+      localStorage.setItem('customer_id', customerId);
+    }
+
     document.getElementById('authModal').classList.add('hidden');
     setupAuthUI();
     loadLocations();
-    alert(`Welcome${isSignup ? '' : ' back'}, ${result.data.full_name}!`);
+    alert(`Welcome${isSignup ? '' : ' back'}, ${fullName}!`);
   } catch (error) {
     console.error('Auth error:', error);
-    console.error('Full error details:', error.response || error);
-    alert(`${isSignup ? 'Signup' : 'Login'} failed:\n${error.message}\n\n(Check browser console for details)`);
+    alert(`${isSignup ? 'Signup' : 'Login'} failed: ${error.message}`);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = isSignup ? 'Sign Up' : 'Sign In';
   }
 }
 
@@ -823,15 +784,20 @@ async function handleBooking(e) {
 
 async function showProfile() {
   const customerId = localStorage.getItem('customer_id');
-  if (!customerId) return;
+  if (!customerId) {
+    alert('Profile unavailable. Please sign out and sign in again.');
+    return;
+  }
 
   try {
     const userResult = await api.getUserProfile(customerId);
     const bookingsResult = await api.getUserBookings();
 
-    document.getElementById('profileName').textContent = userResult.data.user.full_name;
-    document.getElementById('profileEmail').textContent = userResult.data.user.email;
-    document.getElementById('profileMembership').textContent = userResult.data.user.membership_type;
+    // FIX: Safely access nested user data
+    const user = userResult.data?.user || userResult.data || userResult;
+    document.getElementById('profileName').textContent = user.full_name || 'N/A';
+    document.getElementById('profileEmail').textContent = user.email || 'N/A';
+    document.getElementById('profileMembership').textContent = user.membership_type || 'Standard';
     
     // Calculate stats
     const bookings = bookingsResult.data || [];
@@ -848,7 +814,7 @@ async function showProfile() {
         const endTime = new Date(booking.end_time);
         const hours = (endTime - startTime) / (1000 * 60 * 60);
         totalHours += hours;
-        totalSpent += hours * 199; // Assuming 199 per hour
+        totalSpent += hours * 199;
 
         const bookingEl = document.createElement('div');
         bookingEl.className = 'bg-surface-container-highest rounded-lg p-4 flex justify-between items-start';
@@ -869,7 +835,6 @@ async function showProfile() {
       bookingsDiv.innerHTML = '<p class="text-gray-500 text-center py-4">👋 No bookings yet. Start by exploring our locations!</p>';
     }
 
-    // Update stats
     document.getElementById('bookingCount').textContent = totalBookings;
     document.getElementById('hoursBooked').textContent = totalHours.toFixed(1);
     document.getElementById('spentAmount').textContent = '₹' + totalSpent.toLocaleString();
@@ -887,7 +852,6 @@ async function showLocationsDiscovery() {
     window.allLocations = result.data || [];
     renderDiscoveryLocations(window.allLocations);
     
-    // Load city filters
     const cities = [...new Set(window.allLocations.map(l => l.city))];
     const filterContainer = document.getElementById('cityFilters');
     filterContainer.innerHTML = cities.map(city => `
@@ -896,20 +860,15 @@ async function showLocationsDiscovery() {
       </button>
     `).join('');
     
-    // Add city filter listeners
     document.querySelectorAll('.city-filter').forEach(btn => {
       btn.addEventListener('click', () => {
         const city = btn.dataset.city;
-        const filtered = btn.classList.contains('bg-primary') 
-          ? window.allLocations 
-          : window.allLocations.filter(l => l.city === city);
+        const isActive = btn.classList.contains('bg-primary');
+        const filtered = isActive ? window.allLocations : window.allLocations.filter(l => l.city === city);
         renderDiscoveryLocations(filtered);
         
-        // Toggle active state
         document.querySelectorAll('.city-filter').forEach(b => b.classList.remove('bg-primary', 'text-white', 'border-primary'));
-        if (btn.classList.contains('bg-primary')) {
-          btn.classList.remove('bg-primary', 'text-white', 'border-primary');
-        } else {
+        if (!isActive) {
           btn.classList.add('bg-primary', 'text-white', 'border-primary');
         }
       });
@@ -923,7 +882,7 @@ async function showLocationsDiscovery() {
 
 function filterLocations() {
   const searchTerm = document.getElementById('locationSearch').value.toLowerCase();
-  const filtered = window.allLocations.filter(loc => 
+  const filtered = (window.allLocations || []).filter(loc => 
     loc.name.toLowerCase().includes(searchTerm) ||
     loc.city.toLowerCase().includes(searchTerm) ||
     (loc.description && loc.description.toLowerCase().includes(searchTerm))
@@ -962,7 +921,6 @@ function renderDiscoveryLocations(locations) {
     grid.appendChild(card);
   });
   
-  // Add book button listeners
   document.querySelectorAll('.discovery-book-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const token = localStorage.getItem('auth_token');
